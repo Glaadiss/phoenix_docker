@@ -5,6 +5,7 @@ db:
   environment:
     POSTGRES_USER: postgres
     POSTGRES_PASSWORD: postgres
+    POSTGRES_DB: wolves_api_prod
   volumes_from:
     - dbdata
 dbdata:
@@ -13,12 +14,12 @@ dbdata:
     - /var/lib/postgres
   command: "true"
 web:
-  build: "."
+  build: "gladis/wolves_api"
   environment:
     MIX_ENV: "prod"
     PORT: 4000
   ports:
-    - "80:4000"
+    - "4000:4000"
   links:
     - "db:db"
 
