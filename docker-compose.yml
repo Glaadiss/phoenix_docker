@@ -14,7 +14,7 @@ dbdata:
     - /var/lib/postgres
   command: "true"
 web:
-  build: "gladis/wolves_api"
+  image: "gladis/wolves_api"
   environment:
     MIX_ENV: "prod"
     PORT: 4000
